@@ -1,0 +1,128 @@
+#version 460
+#extension GL_GOOGLE_include_directive : require0
+
+layout(local_size_x = 16, local_size_y = 16, local_size_z = 1) in;
+
+struct DisplacementWriteParams
+{
+	// Position relative to the terrain expected (terrain local space).
+	vec2 position;
+	float radius;
+
+    float _padding;
+};
+
+// Keep multiples of 256 bytes for UBOs
+layout (std140, binding = 10) uniform DisplacementUBO
+{
+    DisplacementWriteParams displacements[16];
+};
+
+uniform layout(binding = 0) sampler2D readImage;
+uniform layout(binding = 1, rgba8) image2D writeImage;
+
+uniform float u_time;
+uniform float u_deltaTime;
+uniform vec2 u_velocity;
+uniform float u_angle;
+uniform float u_influenceSize;
+uniform int u_displacementCount;
+
+float sdBox(in vec2 p, in vec2 b)
+{
+    vec2 d = abs(p)-b;
+    return length(max(d,0.0)) + min(max(d.x,d.y),0.0);
+}
+float sdOrientedBox(in vec2 p, in vec2 a, in vec2 b, float th)
+{
+    float l = length(b-a);
+    vec2  d = (b-a)/l;
+    vec2  q = (p-(a+b)*0.5);
+          q = mat2(d.x,-d.y,d.y,d.x)*q;
+          q = abs(q)-vec2(l,th)*0.5;
+    return length(max(q,0.0)) + min(max(q.x,q.y),0.0);    
+}
+
+void main() {
+    // Get the coordinates of the current pixel
+    ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
+
+    vec2 uv = pixelCoords / vec2(gl_WorkGroupSize * gl_NumWorkGroups);
+    vec2 centeredUV = uv - 0.5; // Centre UV
+    
+    // Movement velocity in UV space.
+    vec2 uvVelocity = vec2(u_velocity.x / u_influenceSize, u_velocity.y / u_influenceSize);
+
+    // Apply half a pixel extra to account for filtering.
+    vec2 sampleLocation = uv + uvVelocity + vec2((1.0 / (gl_WorkGroupSize * gl_NumWorkGroups) / 2.0));
+    
+    // Sample map to get previous values.
+    vec4 color = texture2D(readImage, sampleLocation);
+    
+    // TODO: Add the noise segment here.
+
+    // Fade out previous values over time.
+    color = mix(color, vec4(0.0, 0.0, 0.0, 0.0), u_deltaTime * 2.0);
+
+    // Clamp z and w as these should never move.
+    color.z = 0.5f;
+    color.w = 1.0f;
+
+    vec2 finalDirection = vec2(0.0, 0.0);
+
+    const float smoothingAmount = 2.0 / u_influenceSize * 1.5f;
+
+    // Iterate displacements.
+    for (int i = 0; i < u_displacementCount; ++i)
+    {
+        vec2 displacementPosition = vec2(
+            displacements[i].position.x / u_influenceSize, 
+            displacements[i].position.y / u_influenceSize
+        );
+        const vec2 offsetPosition = displacementPosition - centeredUV;
+        const float size = displacements[i].radius / u_influenceSize;
+
+        // Calculate rectangular SDF with smoothing.
+        //float dist = length(offsetPosition);
+        vec2 boxDirection = vec2(cos(u_angle), sin(u_angle));
+        vec2 dist = vec2(sdOrientedBox(offsetPosition, boxDirection * -size / 2, boxDirection * size, size / 15.0));
+        dist = 1.0 - smoothstep(size - smoothingAmount, size, dist);
+
+        // Determine direction between UV and displacer.
+
+        // Circular direction.
+        vec2 direction0 = centeredUV - displacementPosition;
+
+        // Create a split down the line of the angle to get directions opposing from there.
+        vec2 direction1 = (vec2(cos(u_angle), sin(u_angle)) * length(centeredUV)) + centeredUV - displacementPosition;
+      
+        // Mix between directions.
+        vec2 direction = mix(direction0, direction1, 0.9);
+
+        // Normalize direction.
+        direction /= length(direction);
+
+        // Apply distance for both smoothing and masking.
+        direction *= dist;
+
+        // Apply direction to sum.
+        finalDirection += direction;
+    }
+
+    // When on the bounds of a texture.
+    if (pixelCoords.x == 0 || pixelCoords.y == 0 || pixelCoords.x == gl_WorkGroupSize.x * gl_NumWorkGroups.x - 1 || pixelCoords.y == gl_WorkGroupSize.y * gl_NumWorkGroups.y - 1)
+    {
+        // Set to default direction so clamping doesn't cause artifacts.
+        color.x = 0.5;
+        color.y = 0.5;
+    }
+    else
+    {
+        // Encode directions to color.
+        color.x = max(finalDirection.x / 2.0 + 0.5, color.x);
+        color.y = max(finalDirection.y / 2.0 + 0.5, color.y);
+    }
+    
+    // Set the pixel in the output image to the clear color
+    imageStore(writeImage, pixelCoords, color);
+}

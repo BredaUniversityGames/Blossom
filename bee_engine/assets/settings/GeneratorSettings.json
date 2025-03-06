@@ -1,0 +1,26 @@
+{
+    "AsteroidsDepthRange": [
+        -10.0,
+        10.0
+    ],
+    "AsteroidsFrom": 2,
+    "AsteroidsSizeRange": [
+        18.0,
+        60.0
+    ],
+    "AsteroidsTo": 10,
+    "BgAsteroidsDepthRange": [
+        -750.0,
+        -300.0
+    ],
+    "BgAsteroidsFrom": 4,
+    "BgAsteroidsSizeRange": [
+        20.0,
+        120.0
+    ],
+    "BgAsteroidsTo": 12,
+    "Size": [
+        640.0,
+        360.0
+    ]
+}

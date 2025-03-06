@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClInclude Include="include\Editor.hpp" />
+    <ClInclude Include="external\imgui\imgui_impl_prospero.h" />
+    <ClInclude Include="include\imgui_config\imgui_config.hpp" />
+    <ClInclude Include="include\noise_editor\multithread_queues.h" />
+    <ClInclude Include="include\noise_editor\noise_texture.hpp" />
+    <ClInclude Include="include\noise_editor\noise_editor.hpp" />
+    <ClInclude Include="include\main_viewport\main_viewport.hpp" />
+    <ClInclude Include="include\scene_viewer\scene_viewer.hpp" />
+    <ClInclude Include="include\level_editor\prop_builder.hpp" />
+    <ClInclude Include="include\asset_browser\asset_browser.hpp" />
+    <ClInclude Include="include\level_editor\level_editor.hpp" />
+    <ClInclude Include="include\level_editor\edit_state.hpp" />
+    <ClInclude Include="include\asset_browser\asset_types.hpp" />
+    <ClInclude Include="include\menu_interface.hpp" />
+    <ClInclude Include="include\file_dialog\windows_file_dialog.hpp" />
+    <ClInclude Include="include\graphics_menu\graphics_menu.hpp" />
+    <ClInclude Include="include\precompiled\editor_precompiled.hpp" />
+    <ClInclude Include="external\imguizmo\ImGuizmo.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Editor.cpp" />
+    <ClCompile Include="external\imgui\imnodes\imnodes.cpp" />
+    <ClCompile Include="external\imgui\imgui.cpp" />
+    <ClCompile Include="external\imgui\imgui_demo.cpp" />
+    <ClCompile Include="external\imgui\imgui_draw.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="external\imgui\imgui_impl_prospero.cpp" />
+    <ClCompile Include="external\imgui\imgui_stdlib.cpp" />
+    <ClCompile Include="external\imgui\imgui_tables.cpp" />
+    <ClCompile Include="external\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="external\imgui\implot.cpp" />
+    <ClCompile Include="external\imgui\implot_demo.cpp" />
+    <ClCompile Include="external\imgui\implot_items.cpp" />
+    <ClCompile Include="source\imgui_config\imgui_config.cpp" />
+    <ClCompile Include="source\noise_editor\noise_texture.cpp" />
+    <ClCompile Include="source\noise_editor\noise_editor.cpp" />
+    <ClCompile Include="source\main_viewport\main_viewport.cpp" />
+    <ClCompile Include="source\scene_viewer\scene_viewer.cpp" />
+    <ClCompile Include="source\level_editor\prop_builder.cpp" />
+    <ClCompile Include="source\asset_browser\asset_browser.cpp" />
+    <ClCompile Include="source\level_editor\level_editor.cpp" />
+    <ClCompile Include="source\asset_browser\asset_types.cpp" />
+    <ClCompile Include="source\file_dialog\file_dialog.cpp" />
+    <ClCompile Include="source\graphics_menu\graphics_menu.cpp" />
+    <ClCompile Include="include\precompiled\editor_precompiled.cpp" />
+    <ClCompile Include="external\imguizmo\ImGuizmo.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="external\imgui\.editorconfig" />
+  </ItemGroup>
+</Project>

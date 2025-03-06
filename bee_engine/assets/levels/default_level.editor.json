@@ -1,0 +1,155 @@
+{
+    "PropEdits": [
+        {
+            "Seed": 1,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_LavenderCluster_01.gltf",
+                "models\\NewFlowers\\SM_LavenderCluster_01.gltf",
+                "models\\NewFlowers\\SM_SweetAlyssum_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\lavender.png",
+            "Spacing": 0.5,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 1.0,
+            "BendHeightPercentage": 0.75
+        },
+        {
+            "Seed": 2,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_SweetAlyssum_01.gltf",
+                "models\\NewFlowers\\SM_Lavender_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\lavenderoutside.png",
+            "Spacing": 0.5,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 3,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_Sunflower_01.gltf",
+                "models\\NewFlowers\\SM_SunflowerCluster_01.gltf",
+                "models\\NewFlowers\\SM_SunflowerCluster_01.gltf",
+                "models\\NewFlowers\\SM_SweetAlyssum_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\Sunflower.png",
+            "Spacing": 0.8999999761581421,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.7459999918937683,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 1,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_Poppy_01.gltf",
+                "models\\NewFlowers\\SM_Poppy_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\collectables.png",
+            "Spacing": 2.200000047683716,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": true,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 1,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_PoppyCluster_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\chapel.png",
+            "Spacing": 1.5,
+            "UseWind": false,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": true,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 1,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_DaisyCluster_01.gltf",
+                "models\\NewFlowers\\SM_Daisy_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\tree.png",
+            "Spacing": 0.5,
+            "UseWind": false,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": true,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 1,
+            "ModelPaths": [
+                "models\\Rocks\\sm_rock_01.gltf",
+                "models\\Rocks\\sm_rock_02.gltf",
+                "models\\Rocks\\sm_rock_03.gltf",
+                "models\\Rocks\\sm_rock_04.gltf",
+                "models\\Rocks\\sm_rock_05.gltf",
+                "models\\Rocks\\sm_rock_06.gltf"
+            ],
+            "DensityMap": "textures\\noise\\normal_flower_noise.png",
+            "Spacing": 3.799999952316284,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 1,
+            "ModelPaths": [
+                "models\\oak_1.gltf",
+                "models\\oak_0.gltf"
+            ],
+            "DensityMap": "textures\\noise\\square.png",
+            "Spacing": 5.0,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        },
+        {
+            "Seed": 2,
+            "ModelPaths": [
+                "models\\NewFlowers\\SM_Lavender_01.gltf",
+                "models\\NewFlowers\\SM_SweetAlyssum_01.gltf",
+                "models\\NewFlowers\\SM_Daisy_01.gltf"
+            ],
+            "DensityMap": "textures\\noise\\normal_flower_noise.png",
+            "Spacing": 2.299999952316284,
+            "UseWind": true,
+            "GenerateCollidableMesh": false,
+            "Collectable": false,
+            "HiddenUntilSequence": false,
+            "AdjustSlopePercentage": 0.20000000298023225,
+            "MaxBendFactor": 2.0,
+            "BendHeightPercentage": 0.5
+        }
+    ]
+}

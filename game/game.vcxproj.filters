@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="include\precompiled\game_precompiled.cpp" />
+    <ClCompile Include="source\systems\scale_in_system.cpp" />
+    <ClCompile Include="source\systems\player_start.cpp" />
+    <ClCompile Include="source\systems\model_root_component.cpp" />
+    <ClCompile Include="source\systems\basic_particle_system.cpp" />
+    <ClCompile Include="source\systems\collectable.cpp" />
+    <ClCompile Include="source\systems\collisions.cpp" />
+    <ClCompile Include="source\systems\input_helpers.cpp" />
+    <ClCompile Include="source\systems\point_of_interest.cpp" />
+    <ClCompile Include="source\systems\simple_animation.cpp" />
+    <ClCompile Include="source\level\level.cpp" />
+    <ClCompile Include="source\game\blossom.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\systems\player.cpp" />
+    <ClCompile Include="source\systems\player_camera.cpp" />
+    <ClCompile Include="source\systems\playerHUDhelpers.cpp" />
+    <ClCompile Include="source\systems\orbiting_bee_system.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\game\constants.hpp" />
+    <ClInclude Include="include\systems\basic_particle_system.hpp" />
+    <ClInclude Include="include\systems\scale_in_system.hpp" />
+    <ClInclude Include="include\systems\collectable.hpp" />
+    <ClInclude Include="include\systems\collisions.hpp" />
+    <ClInclude Include="include\systems\input_helpers.hpp" />
+    <ClInclude Include="include\systems\model_root_component.hpp" />
+    <ClInclude Include="include\systems\player_start.hpp" />
+    <ClInclude Include="include\systems\point_of_interest.hpp" />
+    <ClInclude Include="include\systems\simple_animation.hpp" />
+    <ClInclude Include="include\game\blossom.hpp" />
+    <ClInclude Include="include\level\level.hpp" />
+    <ClInclude Include="include\systems\player.hpp" />
+    <ClInclude Include="include\systems\player_camera.hpp" />
+    <ClInclude Include="include\precompiled\game_precompiled.hpp" />
+    <ClInclude Include="include\windows\dgpu_exports.hpp" />
+    <ClInclude Include="include\systems\playerHUDhelpers.hpp" />
+    <ClInclude Include="include\systems\orbiting_bee_system.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>

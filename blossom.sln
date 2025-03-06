@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game", "game\game.vcxproj", "{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C} = {13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695} = {A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}
+		{AF113570-CE8C-4531-B255-8E82D39C8B2E} = {AF113570-CE8C-4531-B255-8E82D39C8B2E}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bee_engine", "bee_engine\bee_engine.vcxproj", "{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C} = {13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "editor_lib", "editor_lib\editor_lib.vcxproj", "{AF113570-CE8C-4531-B255-8E82D39C8B2E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C} = {13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jolt", "jolt\jolt.vcxproj", "{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Edit|x64 = Edit|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}.Debug|x64.ActiveCfg = Debug|x64
+		{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}.Debug|x64.Build.0 = Debug|x64
+		{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}.Edit|x64.ActiveCfg = Edit|x64
+		{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}.Edit|x64.Build.0 = Edit|x64
+		{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}.Release|x64.ActiveCfg = Release|x64
+		{C1C096BD-F186-4BC1-AD30-9E613C1A26C6}.Release|x64.Build.0 = Release|x64
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}.Debug|x64.ActiveCfg = Debug|x64
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}.Debug|x64.Build.0 = Debug|x64
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}.Edit|x64.ActiveCfg = Edit|x64
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}.Edit|x64.Build.0 = Edit|x64
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}.Release|x64.ActiveCfg = Release|x64
+		{A5D06FEC-7FCB-4AF8-B043-6D92D6B99695}.Release|x64.Build.0 = Release|x64
+		{AF113570-CE8C-4531-B255-8E82D39C8B2E}.Debug|x64.ActiveCfg = Debug|x64
+		{AF113570-CE8C-4531-B255-8E82D39C8B2E}.Debug|x64.Build.0 = Debug|x64
+		{AF113570-CE8C-4531-B255-8E82D39C8B2E}.Edit|x64.ActiveCfg = Edit|x64
+		{AF113570-CE8C-4531-B255-8E82D39C8B2E}.Edit|x64.Build.0 = Edit|x64
+		{AF113570-CE8C-4531-B255-8E82D39C8B2E}.Release|x64.ActiveCfg = Release|x64
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}.Debug|x64.ActiveCfg = Debug|x64
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}.Debug|x64.Build.0 = Debug|x64
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}.Edit|x64.ActiveCfg = Edit|x64
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}.Edit|x64.Build.0 = Edit|x64
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}.Release|x64.ActiveCfg = Release|x64
+		{13DEDD3B-92BD-49C8-A31D-ED737F3EF75C}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C7F1DF0-DFEE-4342-80E8-F52AFF3E55F5}
+	EndGlobalSection
+EndGlobal

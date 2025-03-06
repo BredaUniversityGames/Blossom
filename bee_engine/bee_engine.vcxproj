@@ -1,0 +1,344 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Edit|x64">
+      <Configuration>Edit</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a5d06fec-7fcb-4af8-b043-6d92d6b99695}</ProjectGuid>
+    <RootNamespace>bee</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>bee_engine</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Edit|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Edit|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)external;$(SolutionDir)jolt;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)external;$(SolutionDir)jolt;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">
+    <OutDir>$(SolutionDir)bin\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(ProjectDir)intermediate\$(Platform)\$(Configuration)\</IntDir>
+    <IncludePath>$(ProjectDir)include;$(ProjectDir)external;$(SolutionDir)jolt;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>BEE_DEBUG;BEE_PLATFORM_PC;JPH_FLOATING_POINT_EXCEPTIONS_ENABLED;JPH_DEBUG_RENDERER;JPH_PROFILE_ENABLED;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled/engine_precompiled.hpp</PrecompiledHeaderFile>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw/glfw3.lib;fmod/lib/fmodstudio$(FMODSuffix)_vc.lib;fmod/lib/fmod$(FMODSuffix)_vc.lib;$(SolutionDir)editor_lib\build\$(Platform)\$(Configuration)\editor_lib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>BEE_PLATFORM_PC;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled/engine_precompiled.hpp</PrecompiledHeaderFile>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw/glfw3.lib;fmod/lib/fmodstudio$(FMODSuffix)_vc.lib;fmod/lib/fmod$(FMODSuffix)_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">
+    <ClCompile>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>BEE_PLATFORM_PC;JPH_FLOATING_POINT_EXCEPTIONS_ENABLED;JPH_DEBUG_RENDERER;JPH_PROFILE_ENABLED;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>
+      </AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>precompiled/engine_precompiled.hpp</PrecompiledHeaderFile>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(ProjectDir)external\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>opengl32.lib;glfw/glfw3.lib;fmod/lib/fmodstudio$(FMODSuffix)_vc.lib;fmod/lib/fmod$(FMODSuffix)_vc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="external\glad\src\glad.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="external\tinygltf\tiny_gltf.cc">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\core\time.cpp" />
+    <ClCompile Include="include\precompiled\engine_precompiled.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="source\displacement\displacement_manager_gl.cpp" />
+    <ClCompile Include="source\physics\debug_renderer.cpp" />
+    <ClCompile Include="source\physics\helpers.cpp" />
+    <ClCompile Include="source\physics\physics_system.cpp" />
+    <ClCompile Include="source\physics\rigidbody.cpp" />
+    <ClCompile Include="source\rendering\ibl_renderer_gl.cpp" />
+    <ClCompile Include="source\rendering\model_renderer_gl.cpp" />
+    <ClCompile Include="source\rendering\post_process\post_process_manager.cpp" />
+    <ClCompile Include="source\rendering\shader_db_gl.cpp" />
+    <ClCompile Include="source\resources\material\material_gl.cpp" />
+    <ClCompile Include="source\terrain\terrain_collider.cpp" />
+    <ClCompile Include="source\math\easing.cpp" />
+    <ClCompile Include="source\ui\ui.cpp" />
+    <ClCompile Include="source\platform\opengl\post_process\post_process_effects_gl.cpp" />
+    <ClCompile Include="source\platform\opengl\render_gl.cpp" />
+    <ClCompile Include="source\platform\opengl\ui_gl.cpp" />
+    <ClCompile Include="source\rendering\skybox_gl.cpp" />
+    <ClCompile Include="source\resources\material\material_builder.cpp" />
+    <ClCompile Include="source\resources\image\image_loader_gl.cpp" />
+    <ClCompile Include="source\core\audio.cpp" />
+    <ClCompile Include="source\grass\grass_manager.cpp" />
+    <ClCompile Include="source\grass\grass_renderer_gl.cpp" />
+    <ClCompile Include="source\platform\opengl\debug_render_gl.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\rendering\debug_render.cpp" />
+    <ClCompile Include="source\core\ecs.cpp" />
+    <ClCompile Include="source\core\engine.cpp" />
+    <ClCompile Include="source\core\fileio.cpp" />
+    <ClCompile Include="source\math\geometry.cpp" />
+    <ClCompile Include="source\platform\opengl\shader_gl.cpp" />
+    <ClCompile Include="source\platform\pc\core\device_pc.cpp" />
+    <ClCompile Include="source\platform\pc\core\fileio_pc.cpp" />
+    <ClCompile Include="source\platform\pc\core\input_pc.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+      </ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">
+      </ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\core\transform.cpp" />
+    <ClCompile Include="source\platform\opengl\open_gl.cpp" />
+    <ClCompile Include="source\resources\mesh\mesh_loader_gl.cpp" />
+    <ClCompile Include="source\resources\model\model.cpp" />
+    <ClCompile Include="source\resources\model\model_loader.cpp" />
+    <ClCompile Include="source\terrain\terrain_renderer_gl.cpp" />
+    <ClCompile Include="source\tools\log.cpp" />
+    <ClCompile Include="source\tools\pcg_rand.cpp" />
+    <ClCompile Include="source\tools\shader_preprocessor.cpp" />
+    <ClCompile Include="source\tools\thread_pool.cpp" />
+    <ClCompile Include="source\tools\tools.cpp" />
+    <ClCompile Include="source\wind\wind_gl.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Edit|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="external\fmod\fmod.h" />
+    <ClInclude Include="external\fmod\fmod.hpp" />
+    <ClInclude Include="external\fmod\fmod_codec.h" />
+    <ClInclude Include="external\fmod\fmod_common.h" />
+    <ClInclude Include="external\fmod\fmod_dsp.h" />
+    <ClInclude Include="external\fmod\fmod_dsp_effects.h" />
+    <ClInclude Include="external\fmod\fmod_errors.h" />
+    <ClInclude Include="external\fmod\fmod_output.h" />
+    <ClInclude Include="external\fmod\fmod_studio.h" />
+    <ClInclude Include="external\fmod\fmod_studio.hpp" />
+    <ClInclude Include="external\fmod\fmod_studio_common.h" />
+    <ClInclude Include="external\fmod\fmod_switch.h" />
+    <ClInclude Include="include\code_utils\bee_utils.hpp" />
+    <ClInclude Include="include\core\audio.hpp" />
+    <ClInclude Include="include\core\game.hpp" />
+    <ClInclude Include="include\core\time.hpp" />
+    <ClInclude Include="include\tools\serialization.hpp" />
+    <ClInclude Include="include\physics\box_collider.hpp" />
+    <ClInclude Include="include\physics\debug_renderer.hpp" />
+    <ClInclude Include="include\physics\helpers.hpp" />
+    <ClInclude Include="include\physics\physics_system.hpp" />
+    <ClInclude Include="include\physics\layers.hpp" />
+    <ClInclude Include="include\physics\rigidbody.hpp" />
+    <ClInclude Include="include\displacement\displacement_manager.hpp" />
+    <ClInclude Include="include\displacement\displacer.hpp" />
+    <ClInclude Include="include\platform\opengl\gl_uniform.hpp" />
+    <ClInclude Include="include\precompiled\engine_precompiled.hpp" />
+    <ClInclude Include="include\rendering\ibl_renderer.hpp" />
+    <ClInclude Include="include\rendering\model_renderer.hpp" />
+    <ClInclude Include="include\rendering\shader_db.hpp" />
+    <ClInclude Include="include\resources\image\image.hpp" />
+    <ClInclude Include="include\resources\image\image_common.hpp" />
+    <ClInclude Include="include\resources\mesh\mesh_common.hpp" />
+    <ClInclude Include="include\math\easing.hpp" />
+    <ClInclude Include="include\terrain\terrain_collider.hpp" />
+    <ClInclude Include="include\tools\serialization_helpers.hpp" />
+    <ClInclude Include="include\ui\ui.hpp" />
+    <ClInclude Include="include\grass\grass_chunk.hpp" />
+    <ClInclude Include="include\grass\grass_manager.hpp" />
+    <ClInclude Include="include\grass\grass_renderer.hpp" />
+    <ClInclude Include="include\core\resource.hpp" />
+    <ClInclude Include="include\rendering\shader.hpp" />
+    <ClInclude Include="include\rendering\post_process\post_process_effects.hpp" />
+    <ClInclude Include="include\rendering\post_process\post_process_manager.hpp" />
+    <ClInclude Include="include\rendering\skybox.hpp" />
+    <ClInclude Include="include\resources\resource_manager.hpp" />
+    <ClInclude Include="include\math\math.hpp" />
+    <ClInclude Include="include\resources\image\image_gl.hpp" />
+    <ClInclude Include="include\resources\image\image_loader.hpp" />
+    <ClInclude Include="include\resources\material\material.hpp" />
+    <ClInclude Include="include\resources\material\material_builder.hpp" />
+    <ClInclude Include="include\resources\mesh\mesh_gl.hpp" />
+    <ClInclude Include="include\resources\mesh\mesh_loader.hpp" />
+    <ClInclude Include="include\resources\model\model.hpp" />
+    <ClInclude Include="include\resources\model\model_loader.hpp" />
+    <ClInclude Include="include\resources\resource_handle.hpp" />
+    <ClInclude Include="include\terrain\terrain_chunk.hpp" />
+    <ClInclude Include="include\terrain\terrain_renderer.hpp" />
+    <ClInclude Include="include\tools\input_mapping.hpp" />
+    <ClInclude Include="include\tools\pcg_rand.hpp" />
+    <ClInclude Include="include\tools\thread_pool.hpp" />
+    <ClInclude Include="include\wind\wind.hpp" />
+    <ClInclude Include="source\samples\fleet\camera.h" />
+    <ClInclude Include="source\samples\fleet\components.h" />
+    <ClInclude Include="source\samples\fleet\coordinate.h" />
+    <ClInclude Include="source\samples\fleet\fleet.h" />
+    <ClInclude Include="include\core\device.hpp" />
+    <ClInclude Include="include\core\ecs.h" />
+    <ClInclude Include="include\core\ecs.hpp" />
+    <ClInclude Include="include\core\engine.h" />
+    <ClInclude Include="include\core\engine.hpp" />
+    <ClInclude Include="include\core\fileio.hpp" />
+    <ClInclude Include="include\core\input.hpp" />
+    <ClInclude Include="include\core\transform.hpp" />
+    <ClInclude Include="include\math\geometry.hpp" />
+    <ClInclude Include="include\platform\opengl\shader_gl.hpp" />
+    <ClInclude Include="include\platform\opengl\uniforms_gl.hpp" />
+    <ClInclude Include="include\platform\pc\core\device_pc.hpp" />
+    <ClInclude Include="include\platform\opengl\open_gl.hpp" />
+    <ClInclude Include="include\rendering\debug_render.hpp" />
+    <ClInclude Include="include\rendering\render.hpp" />
+    <ClInclude Include="include\rendering\render_components.hpp" />
+    <ClInclude Include="include\tools\log.hpp" />
+    <ClInclude Include="include\tools\shader_preprocessor.hpp" />
+    <ClInclude Include="include\tools\tools.hpp" />
+    <ClInclude Include="source\samples\fleet\generator.h" />
+    <ClInclude Include="source\samples\fleet\meshgenerators.h" />
+    <ClInclude Include="source\samples\fleet\modelviewer.h" />
+    <ClInclude Include="source\samples\fleet\priorities.h" />
+    <ClInclude Include="source\samples\fleet\ships.h" />
+    <ClInclude Include="source\samples\fleet\spatial.h" />
+    <ClInclude Include="source\samples\fleet\steering.h" />
+    <ClInclude Include="source\samples\fleet\vehicle.h" />
+    <ClInclude Include="source\samples\fleet\vfx.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Natvis Include="external\entt\natvis\entt\config.natvis" />
+    <Natvis Include="external\entt\natvis\entt\container.natvis" />
+    <Natvis Include="external\entt\natvis\entt\core.natvis" />
+    <Natvis Include="external\entt\natvis\entt\entity.natvis" />
+    <Natvis Include="external\entt\natvis\entt\graph.natvis" />
+    <Natvis Include="external\entt\natvis\entt\locator.natvis" />
+    <Natvis Include="external\entt\natvis\entt\meta.natvis" />
+    <Natvis Include="external\entt\natvis\entt\platform.natvis" />
+    <Natvis Include="external\entt\natvis\entt\poly.natvis" />
+    <Natvis Include="external\entt\natvis\entt\process.natvis" />
+    <Natvis Include="external\entt\natvis\entt\resource.natvis" />
+    <Natvis Include="external\entt\natvis\entt\signal.natvis" />
+    <Natvis Include="external\glm\glm.natvis" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

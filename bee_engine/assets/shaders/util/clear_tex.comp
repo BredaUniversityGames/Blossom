@@ -1,0 +1,17 @@
+#version 460
+#extension GL_GOOGLE_include_directive : require0
+
+// Define the size of the image
+layout(local_size_x = 16, local_size_y = 16, local_size_z = 1) in;
+
+// Define the input and output image
+uniform layout(binding = 0, rgba8) image2D inputImage;
+uniform vec4 clearColor; // The color to clear the image to
+
+void main() {
+    // Get the coordinates of the current pixel
+    ivec2 pixelCoords = ivec2(gl_GlobalInvocationID.xy);
+    
+    // Set the pixel in the output image to the clear color
+    imageStore(inputImage, pixelCoords, clearColor);
+}

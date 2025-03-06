@@ -1,0 +1,16 @@
+#version 460 core
+#extension GL_GOOGLE_include_directive : require
+
+#include "noise.glsl"
+
+layout(local_size_x = 8, local_size_y = 8, local_size_z = 8) in;
+
+layout(binding=0, rgba8) uniform image3D noise_image;
+
+void main() 
+{
+    ivec3 id = ivec3(gl_GlobalInvocationID.x, gl_GlobalInvocationID.y, gl_GlobalInvocationID.z);
+    vec4 noiseVal = vec4(noise(id / 16.0).x, noise((id + 256) / 16.0).x, 0.0, 0.0);
+    imageStore(noise_image, id, noiseVal * 0.5 + 0.5);
+}
+
