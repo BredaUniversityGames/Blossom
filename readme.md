@@ -1,5 +1,7 @@
 # BEE Engine - Blossom
 
+NOTE: this repo does not include PS5 backend of the engine
+
 ### Running the Project
 
 In order to run the engine, the startup project must be set to `game`.
