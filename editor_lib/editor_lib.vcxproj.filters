@@ -2,7 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClInclude Include="include\Editor.hpp" />
-    <ClInclude Include="external\imgui\imgui_impl_prospero.h" />
     <ClInclude Include="include\imgui_config\imgui_config.hpp" />
     <ClInclude Include="include\noise_editor\multithread_queues.h" />
     <ClInclude Include="include\noise_editor\noise_texture.hpp" />
@@ -29,7 +28,6 @@
     <ClCompile Include="external\imgui\imgui_impl.cpp" />
     <ClCompile Include="external\imgui\imgui_impl_glfw.cpp" />
     <ClCompile Include="external\imgui\imgui_impl_opengl3.cpp" />
-    <ClCompile Include="external\imgui\imgui_impl_prospero.cpp" />
     <ClCompile Include="external\imgui\imgui_stdlib.cpp" />
     <ClCompile Include="external\imgui\imgui_tables.cpp" />
     <ClCompile Include="external\imgui\imgui_widgets.cpp" />
